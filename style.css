@@ -15,11 +15,21 @@ body {
     width: 150px;
     height: 150px;
     float: left;
-    border: 1px solid white;
+    border: 2px solid white;
     box-sizing: border-box;
     cursor: pointer;
 }
 
 .block:hover {
     background-color: yellowgreen;
+}
+
+.cross {
+    background-image: url(images/12.png);
+    background-size: 100%;
+}
+
+.zero {
+    background-image: url(images/14.png);
+    background-size: 100%;
 }

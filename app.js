@@ -1,18 +1,64 @@
-for (let i = 0; i < 9; i++) {
-    document.getElementById('game').innerHTML += '<div class="block"></div>';
+let content = "";
+
+for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+        content += `<div id="${i}${j}" class="block"></div>`;
+    }
+}
+let game = document.querySelector("#game");
+game.innerHTML = content;
+
+
+
+
+let turn = true; // true = x, false = 0;
+
+let allBlock = document.getElementsByClassName("block");
+for (let block of allBlock) {
+    block.addEventListener("click", function() {
+        let [x, y] = ([...block.id]); //let [x,y] = word.split('');
+        let state = grid[x][y];
+        if (state == "") {
+            grid[x][y] = turn == true ? "x" : "0";
+            turn = !turn;
+        }
+        render();
+    });
 }
 
-//получение по клику крестиков
-let elemOne = document.querySelector("#game").childNodes;
-elemOne.forEach((elem) => elem.addEventListener("click", function(event) {
-    elem.style.backgroundImage = "url('images/12.png')";
-    elem.style.backgroundSize = "100% 100%";
 
-}));
-//получение нолика по клику правой кнопки мышки
+//matrix
 
-elemOne.forEach((elem) => elem.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-    elem.style.backgroundImage = "url('images/14.png')";
-    elem.style.backgroundSize = "100% 100%";
-}, false));
+
+
+let grid = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', ''],
+];
+render();
+
+function render() {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            let block = document.getElementById(`${i}${j}`);
+            let state = grid[i][j];
+            if (state == "x") {
+                block.classList.add("cross");
+            } else if (state == "0") {
+                block.classList.add("zero");
+            } else {
+                block.classList.remove("cross");
+            }
+        }
+    }
+}
+
+// let grid = [];
+
+// for (let i = 0; i < 3; i++) {
+//     grid[i] = [];
+//     for (let j = 0; j < 3; j++) {
+//         grid[i][j] = 0;
+//     }
+// }
