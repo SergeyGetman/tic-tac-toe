@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(195, 207, 207);
+}
+
+#game {
+    width: 450px;
+    height: 450px;
+    background: rgb(255, 123, 0);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+.block {
+    width: 150px;
+    height: 150px;
+    float: left;
+    border: 1px solid white;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.block:hover {
+    background-color: yellowgreen;
+}
